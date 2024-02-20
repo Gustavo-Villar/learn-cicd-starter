@@ -33,8 +33,8 @@ func (cfg *apiConfig) handlerUsersCreate(w http.ResponseWriter, r *http.Request)
 
 	err = cfg.DB.CreateUser(r.Context(), database.CreateUserParams{
 		ID:        uuid.New().String(),
-		CreatedAt: time.Now().UTC(),
-		UpdatedAt: time.Now().UTC(),
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
 		Name:      params.Name,
 		ApiKey:    apiKey,
 	})
