@@ -17,7 +17,7 @@ import (
 
 	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/lib/pq" // PostgreSQL driver, used implicitly by database/sql.
 )
 
 type apiConfig struct {
@@ -49,7 +49,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		db, err := sql.Open("mysql", parsedURL)
+		db, err := sql.Open("postgres", parsedURL)
 		if err != nil {
 			log.Fatal(err)
 		}
